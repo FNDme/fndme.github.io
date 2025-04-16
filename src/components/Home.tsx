@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Hero } from "./sections/Hero";
 import { Skills } from "./sections/Skills";
 import { About } from "./sections/About";
+import { Contact } from "./sections/Contact";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <Hero />
       <Skills />
       <About />
+      <Contact />
     </div>
   );
 }

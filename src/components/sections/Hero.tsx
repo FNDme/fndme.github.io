@@ -3,8 +3,30 @@ import { Button } from "../ui/button";
 import { Github, Linkedin, Mail, ChevronDown } from "lucide-react";
 import { features } from "@/data/features";
 import { FeatureCard } from "../cards/FeatureCard";
+import { Toast } from "../ui/toast";
+import { useState } from "react";
 
 export function Hero() {
+  const [showToast, setShowToast] = useState(false);
+
+  const handleConnectClick = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleEmailClick = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    try {
+      await navigator.clipboard.writeText("gabiluisfreitas@gmail.com");
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy email:", err);
+    }
+  };
+
   return (
     <section className="container mx-auto px-4 py-20 min-h-screen flex items-center relative">
       <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -64,7 +86,10 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1 }}
             >
-              <Button className="px-8 py-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-lg transition-all duration-300 flex items-center gap-2 shadow-lg shadow-blue-500/20 text-lg font-medium hover:scale-105 active:scale-95 text-white">
+              <Button
+                onClick={handleConnectClick}
+                className="px-8 py-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-lg transition-all duration-300 flex items-center gap-2 shadow-lg shadow-blue-500/20 text-lg font-medium hover:scale-105 active:scale-95 text-white"
+              >
                 Let's Connect
               </Button>
             </motion.div>
@@ -96,6 +121,7 @@ export function Hero() {
               </motion.a>
               <motion.a
                 href="mailto:gabiluisfreitas@gmail.com"
+                onClick={handleEmailClick}
                 className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700/50 backdrop-blur-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:border-gray-300 dark:hover:border-gray-600 hover:bg-white dark:hover:bg-gray-700/50"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -174,6 +200,7 @@ export function Hero() {
           <ChevronDown className="w-6 h-6 text-gray-600 dark:text-gray-400" />
         </motion.div>
       </motion.div>
+      <Toast message="Email copied to clipboard!" isVisible={showToast} />
     </section>
   );
 }
