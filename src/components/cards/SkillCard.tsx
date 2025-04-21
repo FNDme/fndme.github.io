@@ -3,7 +3,8 @@ import { Card, CardContent, CardTitle } from "../ui/card";
 import { Skill } from "@/data/skills";
 
 export function SkillCard({ skill, index }: { skill: Skill; index: number }) {
-  const { name, color, description, imageSrc, combinedImageSrc } = skill;
+  const { name, color, description, ImageComponent, imageComponentsArray } =
+    skill;
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -25,7 +26,7 @@ export function SkillCard({ skill, index }: { skill: Skill; index: number }) {
       <Card className="relative h-[220px] overflow-hidden rounded-xl group">
         {/* Main Background with Gradient */}
         <div
-          className={`absolute inset-0 bg-gradient-to-br ${color} opacity-60 dark:opacity-[0.2] group-hover:opacity-[0.15] dark:group-hover:opacity-[0.25] transition-all duration-500`}
+          className={`absolute inset-0 bg-gradient-to-br ${color} opacity-60 dark:opacity-[0.2] group-hover:opacity-20 dark:group-hover:opacity-[0.25] transition-all duration-500`}
         />
 
         {/* Background Logo Reveal Effect */}
@@ -35,7 +36,7 @@ export function SkillCard({ skill, index }: { skill: Skill; index: number }) {
 
           {/* Main logo reveal */}
           <motion.div
-            className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-15 dark:group-hover:opacity-20 transition-all duration-700"
+            className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-50 dark:group-hover:opacity-20 transition-all duration-700"
             initial={false}
           >
             <motion.div
@@ -51,13 +52,11 @@ export function SkillCard({ skill, index }: { skill: Skill; index: number }) {
                 },
               }}
             >
-              {combinedImageSrc ? (
+              {imageComponentsArray ? (
                 <div className="flex items-center justify-center">
-                  {combinedImageSrc.map(({ src, alt }, index) => (
-                    <img
-                      key={alt}
-                      src={src}
-                      alt={alt}
+                  {imageComponentsArray.map((ImageComponent, index) => (
+                    <ImageComponent
+                      key={index}
                       className={`w-1/2 translate-y-[25%] h-1/2 object-contain filter contrast-200 saturate-200 ${
                         index === 0 ? "translate-x-0" : "translate-x-[-50%]"
                       }`}
@@ -65,11 +64,9 @@ export function SkillCard({ skill, index }: { skill: Skill; index: number }) {
                   ))}
                 </div>
               ) : (
-                <img
-                  src={imageSrc}
-                  alt=""
-                  className="w-full h-full object-contain filter contrast-200 saturate-200"
-                />
+                ImageComponent && (
+                  <ImageComponent className="w-full h-full object-contain filter contrast-200 saturate-200" />
+                )
               )}
             </motion.div>
           </motion.div>
@@ -118,11 +115,11 @@ export function SkillCard({ skill, index }: { skill: Skill; index: number }) {
           <div>
             {/* Skill Icon */}
             <div className="mb-4 relative">
-              {combinedImageSrc ? (
+              {imageComponentsArray ? (
                 <div className="flex justify-start items-center gap-4">
-                  {combinedImageSrc.map(({ src, alt }) => (
+                  {imageComponentsArray.map((ImageComponent, index) => (
                     <motion.div
-                      key={alt}
+                      key={`${name}-${index}`}
                       className="w-12 h-12 relative"
                       initial={{ scale: 0.5, opacity: 0 }}
                       whileInView={{ scale: 1, opacity: 1 }}
@@ -137,11 +134,7 @@ export function SkillCard({ skill, index }: { skill: Skill; index: number }) {
                         transition: { duration: 0.2 },
                       }}
                     >
-                      <img
-                        src={src}
-                        alt={alt}
-                        className="w-full h-full object-contain filter drop-shadow-md"
-                      />
+                      <ImageComponent className="w-full h-full object-contain filter drop-shadow-2xl drop-shadow-zinc-900" />
                     </motion.div>
                   ))}
                 </div>
@@ -161,11 +154,9 @@ export function SkillCard({ skill, index }: { skill: Skill; index: number }) {
                     transition: { duration: 0.2 },
                   }}
                 >
-                  <img
-                    src={imageSrc}
-                    alt={name}
-                    className="w-full h-full object-contain filter drop-shadow-md"
-                  />
+                  {ImageComponent && (
+                    <ImageComponent className="w-full h-full object-contain filter drop-shadow-lg drop-shadow-neutral-600-800" />
+                  )}
                 </motion.div>
               )}
             </div>
