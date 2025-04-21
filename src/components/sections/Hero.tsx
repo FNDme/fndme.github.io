@@ -5,6 +5,7 @@ import { features } from "@/data/features";
 import { FeatureCard } from "../cards/FeatureCard";
 import { Toast } from "../ui/toast";
 import { useState } from "react";
+import { personalInfo } from "@/data/personalInfo";
 
 export function Hero() {
   const [showToast, setShowToast] = useState(false);
@@ -18,12 +19,14 @@ export function Hero() {
 
   const handleEmailClick = async (e: React.MouseEvent) => {
     e.preventDefault();
-    try {
-      await navigator.clipboard.writeText("gabiluisfreitas@gmail.com");
-      setShowToast(true);
-      setTimeout(() => setShowToast(false), 2000);
-    } catch (err) {
-      console.error("Failed to copy email:", err);
+    if (personalInfo.email) {
+      try {
+        await navigator.clipboard.writeText(personalInfo.email);
+        setShowToast(true);
+        setTimeout(() => setShowToast(false), 2000);
+      } catch (err) {
+        console.error("Failed to copy email:", err);
+      }
     }
   };
 
@@ -48,7 +51,7 @@ export function Hero() {
               transition={{ type: "spring", stiffness: 200, damping: 20 }}
             >
               <span className="px-4 py-2 bg-blue-100 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-full text-sm font-medium">
-                Frontend Developer
+                {personalInfo.title}
               </span>
             </motion.div>
             <motion.h1
@@ -58,7 +61,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-700 via-purple-700 to-pink-700 dark:from-blue-400 dark:via-purple-500 dark:to-pink-500">
-                Gabriel Luis
+                {personalInfo.name}
               </span>
             </motion.h1>
             <motion.h2
@@ -100,7 +103,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 1.2 }}
             >
               <motion.a
-                href="https://github.com/FNDme"
+                href={personalInfo.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700/50 backdrop-blur-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:border-gray-300 dark:hover:border-gray-600 hover:bg-white dark:hover:bg-gray-700/50"
@@ -110,7 +113,7 @@ export function Hero() {
                 <Github className="w-5 h-5" />
               </motion.a>
               <motion.a
-                href="https://www.linkedin.com/in/gabriel-luis-freitas/"
+                href={personalInfo.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700/50 backdrop-blur-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:border-gray-300 dark:hover:border-gray-600 hover:bg-white dark:hover:bg-gray-700/50"
@@ -120,7 +123,7 @@ export function Hero() {
                 <Linkedin className="w-5 h-5" />
               </motion.a>
               <motion.a
-                href="mailto:gabiluisfreitas@gmail.com"
+                href={`mailto:${personalInfo.email}`}
                 onClick={handleEmailClick}
                 className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700/50 backdrop-blur-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:border-gray-300 dark:hover:border-gray-600 hover:bg-white dark:hover:bg-gray-700/50"
                 whileHover={{ scale: 1.05 }}

@@ -1,21 +1,9 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardTitle } from "../ui/card";
+import { Skill } from "@/data/skills";
 
-interface SkillCardProps {
-  name: string;
-  color: string;
-  description: string;
-  index: number;
-  imageSrc: string;
-}
-
-export function SkillCard({
-  name,
-  color,
-  description,
-  index,
-  imageSrc,
-}: SkillCardProps) {
+export function SkillCard({ skill, index }: { skill: Skill; index: number }) {
+  const { name, color, description, imageSrc, combinedImageSrc } = skill;
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -63,11 +51,26 @@ export function SkillCard({
                 },
               }}
             >
-              <img
-                src={imageSrc}
-                alt=""
-                className="w-full h-full object-contain filter contrast-200 saturate-200"
-              />
+              {combinedImageSrc ? (
+                <div className="flex items-center justify-center">
+                  {combinedImageSrc.map(({ src, alt }, index) => (
+                    <img
+                      key={alt}
+                      src={src}
+                      alt={alt}
+                      className={`w-1/2 translate-y-[25%] h-1/2 object-contain filter contrast-200 saturate-200 ${
+                        index === 0 ? "translate-x-0" : "translate-x-[-50%]"
+                      }`}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <img
+                  src={imageSrc}
+                  alt=""
+                  className="w-full h-full object-contain filter contrast-200 saturate-200"
+                />
+              )}
             </motion.div>
           </motion.div>
 
@@ -115,27 +118,56 @@ export function SkillCard({
           <div>
             {/* Skill Icon */}
             <div className="mb-4 relative">
-              <motion.div
-                className="w-12 h-12 relative"
-                initial={{ scale: 0.5, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 400,
-                  damping: 20,
-                  delay: 0.1 + index * 0.05,
-                }}
-                whileHover={{
-                  scale: 1.1,
-                  transition: { duration: 0.2 },
-                }}
-              >
-                <img
-                  src={imageSrc}
-                  alt={name}
-                  className="w-full h-full object-contain filter drop-shadow-md"
-                />
-              </motion.div>
+              {combinedImageSrc ? (
+                <div className="flex justify-start items-center gap-4">
+                  {combinedImageSrc.map(({ src, alt }) => (
+                    <motion.div
+                      key={alt}
+                      className="w-12 h-12 relative"
+                      initial={{ scale: 0.5, opacity: 0 }}
+                      whileInView={{ scale: 1, opacity: 1 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 20,
+                        delay: 0.1 + index * 0.05,
+                      }}
+                      whileHover={{
+                        scale: 1.1,
+                        transition: { duration: 0.2 },
+                      }}
+                    >
+                      <img
+                        src={src}
+                        alt={alt}
+                        className="w-full h-full object-contain filter drop-shadow-md"
+                      />
+                    </motion.div>
+                  ))}
+                </div>
+              ) : (
+                <motion.div
+                  className="w-12 h-12 relative"
+                  initial={{ scale: 0.5, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 20,
+                    delay: 0.1 + index * 0.05,
+                  }}
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { duration: 0.2 },
+                  }}
+                >
+                  <img
+                    src={imageSrc}
+                    alt={name}
+                    className="w-full h-full object-contain filter drop-shadow-md"
+                  />
+                </motion.div>
+              )}
             </div>
 
             {/* Title and Description */}

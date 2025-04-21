@@ -31,7 +31,7 @@ export function Skills() {
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {skills.map((skill, index) => (
-            <SkillCard key={skill.name} {...skill} index={index} />
+            <SkillCard key={skill.name} skill={skill} index={index} />
           ))}
         </div>
       </motion.div>

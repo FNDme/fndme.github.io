@@ -32,8 +32,8 @@ A modern, responsive portfolio website built with React, TypeScript, and Vite. T
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/portfolio.git
-cd portfolio
+git clone https://github.com/FNDme/fndme.github.io
+cd fndme.github.io
 ```
 
 2. Install dependencies:
@@ -44,7 +44,12 @@ npm install
 yarn install
 ```
 
-3. Start the development server:
+3. Configure your personal information:
+
+   - Open `src/data/personalInfo.ts`
+   - Update the personal information with your details
+
+4. Start the development server:
 
 ```bash
 npm run dev
@@ -64,6 +69,7 @@ portfolio/
 │   ├── assets/        # Images, fonts, etc.
 │   ├── styles/        # Global styles and Tailwind config
 │   ├── utils/         # Helper functions and utilities
+│   ├── data/          # Data files (personal info, projects, etc.)
 │   └── App.tsx        # Main application component
 ├── public/            # Static files
 └── package.json       # Project dependencies and scripts
@@ -91,4 +97,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-For any questions or suggestions, feel free to reach out!
+For any questions or suggestions, please refer to the contact information in `src/data/personalInfo.ts`.

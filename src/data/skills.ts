@@ -4,9 +4,18 @@ import ionicIcon from "@/assets/icons/ionic-colored.svg";
 import typescriptIcon from "@/assets/icons/typescript-colored.svg";
 import tailwindIcon from "@/assets/icons/tailwindcss-colored.svg";
 import nextjsIcon from "@/assets/icons/nextjs-colored-dark.svg";
-import nodejsIcon from "@/assets/icons/nodejs-colored.svg";
-import fastapiIcon from "@/assets/icons/fastapi-colored.svg";
-export const skills = [
+import graphqlIcon from "@/assets/icons/graphql-colored.svg";
+import apolloIcon from "@/assets/icons/apollo.svg";
+import electronIcon from "@/assets/icons/electron-colored.svg";
+export interface Skill {
+  name: string;
+  color: string;
+  description: string;
+  imageSrc?: string;
+  combinedImageSrc?: { src: string; alt: string }[];
+}
+
+export const skills: Skill[] = [
   {
     name: "React",
     color: "from-blue-400 to-cyan-400",
@@ -44,15 +53,24 @@ export const skills = [
     imageSrc: nextjsIcon,
   },
   {
-    name: "Node.js",
-    color: "from-green-500 to-emerald-500",
-    description: "Backend Development",
-    imageSrc: nodejsIcon,
+    name: "GraphQL + Apollo",
+    color: "from-purple-500 to-pink-500",
+    description: "Data Fetching",
+    combinedImageSrc: [
+      {
+        src: graphqlIcon,
+        alt: "GraphQL",
+      },
+      {
+        src: apolloIcon,
+        alt: "Apollo",
+      },
+    ],
   },
   {
-    name: "Rest APIs",
-    color: "from-emerald-500 to-emerald-600",
-    description: "API Integration",
-    imageSrc: fastapiIcon,
+    name: "Electron",
+    color: "from-gray-600 to-gray-900",
+    description: "Desktop Applications",
+    imageSrc: electronIcon,
   },
 ];
