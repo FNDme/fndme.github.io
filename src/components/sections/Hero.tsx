@@ -91,7 +91,7 @@ export function Hero() {
             >
               <Button
                 onClick={handleConnectClick}
-                className="px-8 py-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-lg transition-all duration-300 flex items-center gap-2 shadow-lg shadow-blue-500/20 text-lg font-medium hover:scale-105 active:scale-95 text-white"
+                className="cursor-pointer px-8 py-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-lg transition-all duration-300 flex items-center gap-2 shadow-lg shadow-blue-500/20 text-lg font-medium hover:scale-105 active:scale-95 text-white"
               >
                 Let's Connect
               </Button>
