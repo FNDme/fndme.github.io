@@ -33,13 +33,13 @@ export const skills: Skill[] = [
   },
   {
     name: "Ionic",
-    color: "from-blue-500 to-blue-600",
+    color: "from-indigo-200 to-indigo-500 dark:from-blue-500 dark:to-blue-600",
     description: "Mobile Applications",
     ImageComponent: Ionic,
   },
   {
     name: "TypeScript",
-    color: "from-blue-500 to-blue-600",
+    color: "from-blue-200 to-blue-500 dark:from-blue-500 dark:to-blue-600",
     description: "Type-Safe Development",
     ImageComponent: TypeScript,
   },
@@ -51,7 +51,7 @@ export const skills: Skill[] = [
   },
   {
     name: "Next.js",
-    color: "from-gray-600 to-gray-900",
+    color: "from-gray-600 to-gray-900/50 dark:from-gray-600 dark:to-gray-900",
     description: "Server-Side Rendering",
     ImageComponent: NextJS,
   },
@@ -63,7 +63,7 @@ export const skills: Skill[] = [
   },
   {
     name: "Electron",
-    color: "from-gray-600 to-gray-900",
+    color: "from-slate-500 to-slate-200 dark:from-gray-600 dark:to-gray-900",
     description: "Desktop Applications",
     ImageComponent: Electron,
   },

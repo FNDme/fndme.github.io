@@ -50,7 +50,7 @@ export function Hero() {
               animate={{ scale: 1 }}
               transition={{ type: "spring", stiffness: 200, damping: 20 }}
             >
-              <span className="px-4 py-2 bg-blue-100/50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-400">
+              <span className="px-4 py-2 bg-green-100/50 dark:bg-green-500/10 text-green-700 dark:text-green-400 rounded-full text-sm font-medium border border-green-200 dark:border-green-400">
                 {personalInfo.title}
               </span>
             </m.div>
@@ -60,7 +60,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-700 via-purple-700 to-pink-700 dark:from-blue-400 dark:via-purple-500 dark:to-pink-500">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-lime-700 via-green-700 to-emerald-700 dark:from-green-400 dark:via-emerald-500 dark:to-orange-500">
                 {personalInfo.name}
               </span>
             </m.h1>
@@ -91,7 +91,7 @@ export function Hero() {
             >
               <Button
                 onClick={handleConnectClick}
-                className="cursor-pointer px-8 py-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-lg transition-all duration-300 flex items-center gap-2 shadow-lg shadow-blue-500/20 text-lg font-medium hover:scale-105 active:scale-95 text-white"
+                className="cursor-pointer px-8 py-6 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 rounded-lg transition-all duration-300 flex items-center gap-2 shadow-lg shadow-green-500/20 text-lg font-medium hover:scale-105 active:scale-95 text-white"
                 aria-label="Navigate to contact section"
               >
                 Let's Connect
@@ -146,7 +146,7 @@ export function Hero() {
         >
           <div className="relative">
             <m.div
-              className="absolute inset-0 bg-gradient-to-r from-blue-200/40 to-purple-200/40 dark:from-blue-500/20 dark:to-purple-500/20 rounded-full blur-3xl"
+              className="absolute inset-0 bg-gradient-to-r from-green-200/40 to-emerald-200/40 dark:from-green-500/20 dark:to-emerald-500/20 rounded-full blur-3xl"
               animate={{
                 scale: [1, 1.1, 1],
                 opacity: [0.5, 0.8, 0.5],
