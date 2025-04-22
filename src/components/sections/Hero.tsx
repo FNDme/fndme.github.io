@@ -50,7 +50,7 @@ export function Hero() {
               animate={{ scale: 1 }}
               transition={{ type: "spring", stiffness: 200, damping: 20 }}
             >
-              <span className="px-4 py-2 bg-blue-100 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400 rounded-full text-sm font-medium">
+              <span className="px-4 py-2 bg-blue-100/50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-400">
                 {personalInfo.title}
               </span>
             </m.div>
