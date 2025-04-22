@@ -7,6 +7,7 @@ export function SkillCard({ skill, index }: { skill: Skill; index: number }) {
     skill;
   return (
     <motion.div
+      role="listitem"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{

@@ -29,7 +29,11 @@ export function Skills() {
             />
           </motion.span>
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div
+          className="grid grid-cols-2 md:grid-cols-4 gap-8"
+          role="list"
+          aria-labelledby="skills-heading"
+        >
           {skills.map((skill, index) => (
             <SkillCard key={skill.name} skill={skill} index={index} />
           ))}
