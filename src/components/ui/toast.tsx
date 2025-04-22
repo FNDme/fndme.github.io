@@ -1,4 +1,5 @@
-import { motion, AnimatePresence } from "framer-motion";
+import * as m from "motion/react-m";
+import { AnimatePresence } from "motion/react";
 import { Check } from "lucide-react";
 
 interface ToastProps {
@@ -10,7 +11,7 @@ export function Toast({ message, isVisible }: ToastProps) {
   return (
     <AnimatePresence>
       {isVisible && (
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
@@ -21,7 +22,7 @@ export function Toast({ message, isVisible }: ToastProps) {
             <Check className="w-4 h-4 text-green-500" />
             <span>{message}</span>
           </div>
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

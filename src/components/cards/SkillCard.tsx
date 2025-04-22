@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import * as m from "motion/react-m";
 import { Card, CardContent, CardTitle } from "../ui/card";
 import { Skill } from "@/data/skills";
 
@@ -6,7 +6,7 @@ export function SkillCard({ skill, index }: { skill: Skill; index: number }) {
   const { name, color, description, ImageComponent, imageComponentsArray } =
     skill;
   return (
-    <motion.div
+    <m.div
       role="listitem"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -33,14 +33,14 @@ export function SkillCard({ skill, index }: { skill: Skill; index: number }) {
         {/* Background Logo Reveal Effect */}
         <div className="absolute inset-0 overflow-hidden">
           {/* Diagonal sweep overlay */}
-          <motion.div className="absolute -left-[100%] top-0 w-[200%] h-[200%] bg-gradient-to-r from-transparent via-black/10 to-transparent transform -rotate-45 translate-y-[-50%] group-hover:translate-x-[120%] transition-transform duration-700" />
+          <m.div className="absolute -left-[100%] top-0 w-[200%] h-[200%] bg-gradient-to-r from-transparent via-black/10 to-transparent transform -rotate-45 translate-y-[-50%] group-hover:translate-x-[120%] transition-transform duration-700" />
 
           {/* Main logo reveal */}
-          <motion.div
+          <m.div
             className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-50 dark:group-hover:opacity-20 transition-all duration-700"
             initial={false}
           >
-            <motion.div
+            <m.div
               className="w-3/4 h-3/4 translate-x-[50%] translate-y-[-50%]"
               initial={{ scale: 1.2, rotate: 10 }}
               whileHover={{
@@ -69,12 +69,12 @@ export function SkillCard({ skill, index }: { skill: Skill; index: number }) {
                   <ImageComponent className="w-full h-full object-contain filter contrast-200 saturate-200" />
                 )
               )}
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
 
           {/* Accent circles */}
           <div className="absolute inset-0">
-            <motion.div
+            <m.div
               className={`absolute w-32 h-32 rounded-full bg-gradient-to-r ${color} opacity-0 group-hover:opacity-10 blur-xl transition-all duration-700`}
               style={{
                 left: "60%",
@@ -91,7 +91,7 @@ export function SkillCard({ skill, index }: { skill: Skill; index: number }) {
                 },
               }}
             />
-            <motion.div
+            <m.div
               className={`absolute w-24 h-24 rounded-full bg-gradient-to-r ${color} opacity-0 group-hover:opacity-10 blur-xl transition-all duration-700`}
               style={{
                 left: "30%",
@@ -119,7 +119,7 @@ export function SkillCard({ skill, index }: { skill: Skill; index: number }) {
               {imageComponentsArray ? (
                 <div className="flex justify-start items-center gap-4">
                   {imageComponentsArray.map((ImageComponent, index) => (
-                    <motion.div
+                    <m.div
                       key={`${name}-${index}`}
                       className="w-12 h-12 relative"
                       initial={{ scale: 0.5, opacity: 0 }}
@@ -136,11 +136,11 @@ export function SkillCard({ skill, index }: { skill: Skill; index: number }) {
                       }}
                     >
                       <ImageComponent className="w-full h-full object-contain filter drop-shadow-2xl drop-shadow-zinc-900" />
-                    </motion.div>
+                    </m.div>
                   ))}
                 </div>
               ) : (
-                <motion.div
+                <m.div
                   className="w-12 h-12 relative"
                   initial={{ scale: 0.5, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
@@ -158,7 +158,7 @@ export function SkillCard({ skill, index }: { skill: Skill; index: number }) {
                   {ImageComponent && (
                     <ImageComponent className="w-full h-full object-contain filter drop-shadow-lg drop-shadow-neutral-600-800" />
                   )}
-                </motion.div>
+                </m.div>
               )}
             </div>
 
@@ -174,24 +174,24 @@ export function SkillCard({ skill, index }: { skill: Skill; index: number }) {
           </div>
 
           {/* Progress Bar */}
-          <motion.div
+          <m.div
             className="relative h-1 w-full mt-4 overflow-hidden rounded-full bg-gray-200 dark:bg-gray-700"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             transition={{ duration: 0.8, delay: 0.2 + index * 0.05 }}
           >
-            <motion.div
+            <m.div
               className={`absolute inset-0 bg-gradient-to-r ${color}`}
               initial={{ x: "-100%" }}
               whileInView={{ x: "0%" }}
               transition={{ duration: 1, delay: 0.4 + index * 0.05 }}
             />
-          </motion.div>
+          </m.div>
         </CardContent>
 
         {/* Hover Effect Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/[0.07] to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
       </Card>
-    </motion.div>
+    </m.div>
   );
 }

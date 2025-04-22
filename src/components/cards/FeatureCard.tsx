@@ -1,5 +1,5 @@
 import { LucideIcon } from "lucide-react";
-import { motion } from "framer-motion";
+import * as m from "motion/react-m";
 import { Card, CardContent, CardTitle } from "../ui/card";
 
 interface FeatureCardProps {
@@ -18,7 +18,7 @@ export function FeatureCard({
   index,
 }: FeatureCardProps) {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
@@ -41,6 +41,6 @@ export function FeatureCard({
           </p>
         </CardContent>
       </Card>
-    </motion.div>
+    </m.div>
   );
 }
