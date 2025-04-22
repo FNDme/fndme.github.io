@@ -2,7 +2,7 @@ import * as m from "motion/react-m";
 import { skills } from "@/data/skills";
 import { SkillCard } from "../cards/SkillCard";
 
-export function Skills() {
+export default function Skills() {
   return (
     <section className="container mx-auto px-4 py-20">
       <m.div

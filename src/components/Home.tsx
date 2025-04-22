@@ -1,13 +1,15 @@
 import * as m from "motion/react-m";
-import { Hero } from "./sections/Hero";
-import { Skills } from "./sections/Skills";
-import { About } from "./sections/About";
-import { Contact } from "./sections/Contact";
+import { Fragment, lazy } from "react";
+
+// Lazy load the sections
+const Hero = lazy(() => import("./sections/Hero"));
+const Skills = lazy(() => import("./sections/Skills"));
+const About = lazy(() => import("./sections/About"));
+const Contact = lazy(() => import("./sections/Contact"));
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 via-white to-emerald-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-900 dark:text-white overflow-hidden">
-      {/* Animated Background */}
+    <Fragment>
       <m.div
         className="fixed inset-0 -z-10"
         initial={{ opacity: 0 }}
@@ -24,6 +26,6 @@ export default function Home() {
       <Skills />
       <About />
       <Contact />
-    </div>
+    </Fragment>
   );
 }

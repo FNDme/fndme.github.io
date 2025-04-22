@@ -7,7 +7,7 @@ import { Toast } from "../ui/toast";
 import { useState } from "react";
 import { personalInfo } from "@/data/personalInfo";
 
-export function Hero() {
+export default function Hero() {
   const [showToast, setShowToast] = useState(false);
 
   const handleConnectClick = () => {

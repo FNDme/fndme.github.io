@@ -4,7 +4,7 @@ import { Github, Linkedin, Mail } from "lucide-react";
 import { Toast } from "../ui/toast";
 import { useState } from "react";
 
-export function Contact() {
+export default function Contact() {
   const [showToast, setShowToast] = useState(false);
 
   const handleEmailClick = async (e: React.MouseEvent) => {

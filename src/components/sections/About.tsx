@@ -1,7 +1,7 @@
 import * as m from "motion/react-m";
 import { Card, CardContent, CardTitle } from "../ui/card";
 
-export function About() {
+export default function About() {
   return (
     <section className="container mx-auto px-4 py-20">
       <m.div
