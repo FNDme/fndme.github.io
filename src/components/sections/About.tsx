@@ -11,8 +11,8 @@ export default function About() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <span className="text-3xl font-bold mb-8 text-center relative text-gray-900 dark:text-white">
-          <m.h2
+        <h2 className="text-3xl font-bold mb-8 text-center relative text-gray-900 dark:text-white">
+          <m.span
             className="relative z-10"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -27,8 +27,8 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             />
-          </m.h2>
-        </span>
+          </m.span>
+        </h2>
         <Card className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-gray-200/50 dark:border-gray-700/50">
           <CardContent>
             <m.p
