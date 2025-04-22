@@ -11,8 +11,8 @@ export default function Skills() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-3xl font-bold mb-12 text-center relative text-gray-900 dark:text-white">
-          <m.span
+        <span className="text-3xl font-bold mb-12 text-center relative text-gray-900 dark:text-white">
+          <m.h2
             className="relative z-10"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -27,8 +27,8 @@ export default function Skills() {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             />
-          </m.span>
-        </h2>
+          </m.h2>
+        </span>
         <div
           className="grid grid-cols-2 md:grid-cols-4 gap-8"
           role="list"

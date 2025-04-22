@@ -54,16 +54,16 @@ export default function Hero() {
                 {personalInfo.title}
               </span>
             </m.div>
-            <m.h1
+            <m.span
               className="text-4xl md:text-6xl font-bold mb-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-lime-700 via-green-700 to-emerald-700 dark:from-green-400 dark:via-emerald-500 dark:to-orange-500">
+              <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-lime-700 via-green-700 to-emerald-700 dark:from-green-400 dark:via-emerald-500 dark:to-orange-500">
                 {personalInfo.name}
-              </span>
-            </m.h1>
+              </h1>
+            </m.span>
             <m.h2
               className="text-2xl md:text-3xl text-gray-700 dark:text-gray-300 mb-6"
               initial={{ opacity: 0, y: 20 }}
