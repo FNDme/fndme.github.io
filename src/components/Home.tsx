@@ -1,8 +1,8 @@
 import * as m from "motion/react-m";
 import { Fragment, lazy } from "react";
-import Hero from "./sections/Hero";
 
 // Lazy load the sections
+const Hero = lazy(() => import("./sections/Hero"));
 const Skills = lazy(() => import("./sections/Skills"));
 const About = lazy(() => import("./sections/About"));
 const Contact = lazy(() => import("./sections/Contact"));
